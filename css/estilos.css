@@ -412,3 +412,6 @@ h2 .q{display:inline-block;vertical-align:middle;margin-left:8px;font:600 13px "
 .panes .z3{fill:var(--orange-soft);stroke:var(--orange);stroke-width:2}
 table.expl td:first-child{white-space:nowrap}
 @media (max-width:760px){.ptab{padding:6px 9px;font-size:13px}}
+.dlbox{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.dlbox .btn{text-align:center;line-height:1.3}
+.dlbox .btn small{font-weight:400;font-size:12px;opacity:.85}
