@@ -1,0 +1,44 @@
+# Filtros de visualización de Wireshark · Laboratorio 02 · Digital Forensics 203028123 · UNAD
+# Copie la línea del filtro en la barra verde de Wireshark y presione Enter. Reemplace lo que está entre < >.
+
+# Preguntas y respuestas ARP (IP ↔ MAC en la red local)
+arp
+
+# Solo las respuestas ARP
+arp.opcode == 2
+
+# Todo el tráfico de o hacia una IP
+ip.addr == <IP>
+
+# Solo las consultas DNS (sitios que se intentó visitar)
+dns.flags.response == 0
+
+# Consultas DNS por un nombre
+dns.qry.name contains "<nombre>"
+
+# Client Hello de TLS (muestra el SNI)
+tls.handshake.type == 1
+
+# Tráfico QUIC (HTTPS moderno por UDP)
+quic
+
+# Todas las peticiones HTTP sin cifrar
+http.request
+
+# Envíos de formularios por HTTP
+http.request.method == "POST"
+
+# Peticiones con usuario y clave (Authorization)
+http.authorization
+
+# Peticiones HTTP a un servidor
+http.host contains "<servidor>"
+
+# Peticiones hechas por un programa (User-Agent)
+http.user_agent contains "<programa>"
+
+# Una conversación TCP completa
+tcp.stream eq <N>
+
+# Ocultar el ruido de Windows Update
+!(http.host contains "<dominio de ruido>")

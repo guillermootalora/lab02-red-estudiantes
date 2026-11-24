@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadena de custodia LAB02</title>
+<meta name="author" content="Ingeniero Guillermo Otálora Luna">
+<meta name="description" content="Tutorial: análisis forense de una captura de tráfico de red con Wireshark, hashes, cadena de custodia e informe. Digital Forensics 203028123, UNAD.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilos.css">
+<script>try{var t=localStorage.getItem("lab02-tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="readbar" aria-hidden="true"></div>
+<main>
+<section class="band alt" id="custodia"><div class="wrap">
+ <h2>E · Sellar el archivo y registrar la cadena de custodia</h2>
+ <p class="lead">Al detener la grabación se calcularon los hashes (MD5, SHA‑1 y SHA‑256), se guardaron en un <code>.hashes.txt</code> junto al archivo, y el archivo se marcó en solo lectura. Este es el registro de cadena de custodia, según los campos del Manual del Sistema de Cadena de Custodia de la Fiscalía General de la Nación y la ISO/IEC 27037. Hay una versión imprimible en Descargas.</p>
+ <div class="code"><span class="t">PowerShell</span><pre><code>Get-FileHash .\LAB02_WIFI_GUILLE_20261123.pcapng -Algorithm SHA256
+Get-FileHash .\LAB02_WIFI_GUILLE_20261123.pcapng -Algorithm SHA1
+Get-FileHash .\LAB02_WIFI_GUILLE_20261123.pcapng -Algorithm MD5
+attrib +r .\LAB02_WIFI_GUILLE_20261123.pcapng</code></pre></div>
+ <div class="coc">
+  <header><h3>Registro de cadena de custodia · Evidencia digital de red</h3><span class="tag o">Caso LAB02‑2026‑001</span></header>
+  <div class="scroll"><table class="stack"><thead><tr><th>Campo</th><th>Información</th></tr></thead><tbody><tr><td>Entidad / programa</td><td>Universidad Nacional Abierta y a Distancia (UNAD) · ECBTI · Maestría en Ciberseguridad · curso Digital Forensics 203028123</td></tr><tr><td>Tipo de actividad</td><td>Práctica simulada de laboratorio (escenario controlado, no judicial)</td></tr><tr><td>Responsable de la recolección</td><td>Ing. Guillermo Otálora Luna</td></tr><tr><td>Equipo de origen</td><td>Portátil con Windows 11 Home 25H2, build 26200 · Intel Core i3‑1005G1 · nombre de equipo GUILLE</td></tr><tr><td>Interfaz y red</td><td>Wi‑Fi (\Device\NPF_{F1BE41C9‑B31E‑477D‑8695‑3968892D3F5E}) · red doméstica 192.168.1.0/24</td></tr><tr><td>Herramienta</td><td>Wireshark 4.6.10 (dumpcap) + Npcap 1.89 · sin filtro de captura · snaplen 262144</td></tr><tr><td>Zona horaria</td><td>(UTC−05:00) Bogotá</td></tr><tr><td>Ubicación</td><td>D:\com.gaol.unad\laboratorio_02\evidencias_laboratorio\RED\ (NTFS, local) · copia de distribución en Google Drive (acceso @unad.edu.co)</td></tr></tbody></table></div>
+  <h4>Elementos de evidencia</h4>
+  <div class="scroll"><table class="stack"><thead><tr><th>ID</th><th>Descripción</th><th>Herramienta</th><th>Tamaño</th><th>SHA‑256</th><th>Estado</th></tr></thead><tbody><tr><td>EV‑01</td><td>Captura de tráfico de red<br><code>LAB02_WIFI_GUILLE_20261123.pcapng</code></td><td>Wireshark 4.6.10 / dumpcap</td><td>39.406.988 bytes · 50.134 paquetes</td><td><span class="h">92f98b97f70b07ee0c86d231599187df6157004ed9db84916599845575417f65</span></td><td>Solo lectura + .hashes.txt</td></tr></tbody></table></div>
+  <h4>Registro de eventos</h4>
+  <div class="scroll"><table class="stack"><thead><tr><th>Fecha y hora (UTC−5)</th><th>Acción</th><th>Responsable</th><th>Verificación</th></tr></thead><tbody><tr><td>2026‑11‑23 17:46:41 → 17:51:59</td><td>Grabación de EV‑01 en la interfaz Wi‑Fi, con salida directa al archivo</td><td>G. Otálora</td><td>Propiedades: 50.134 paquetes, 1.240 perdidos (2,4 %)</td></tr><tr><td>2026‑11‑23 17:55</td><td>Cálculo de MD5, SHA‑1 y SHA‑256; .hashes.txt</td><td>G. Otálora</td><td>SHA‑256 de Wireshark coincide</td></tr><tr><td>2026‑11‑23 18:07</td><td>Archivo marcado en solo lectura (attrib +r)</td><td>G. Otálora</td><td>Atributo R</td></tr><tr><td>2026‑11‑23</td><td>Copia a Google Drive (carpeta Artefacto_PCAP)</td><td>G. Otálora</td><td>Hash de la copia = original</td></tr><tr><td>(estudiante)</td><td>Recepción, verificación de hash y análisis</td><td>Estudiante</td><td>Hash calculado = registrado</td></tr></tbody></table></div>
+  <div class="sign"><div>Entrega<br><br>____________________<br>Nombre, firma, fecha</div><div>Recibe<br><br>____________________<br>Nombre, firma, fecha</div></div>
+ </div>
+</div></section></main></body></html>
